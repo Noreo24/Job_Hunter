@@ -1,3 +1,3 @@
 Java Spring RESTFUL APIs (LEARNING PROJECT)
 ===========================================
-- Môi trường chạy dự án: Java 17
+- Dự án tự học, làm về web tìm việc (Giống ITViec, TopCV, ...)
