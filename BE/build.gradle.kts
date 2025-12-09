@@ -12,6 +12,19 @@ java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(17)
 	}
+	sourceCompatibility = JavaVersion.VERSION_17
+	targetCompatibility = JavaVersion.VERSION_17
+}
+
+sourceSets {
+	main {
+		java.srcDirs("src/main/java")
+		resources.srcDirs("src/main/resources")
+	}
+	test {
+		java.srcDirs("src/test/java")
+		resources.srcDirs("src/test/resources")
+	}
 }
 
 repositories {
@@ -35,6 +48,14 @@ dependencies {
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.springframework.security:spring-security-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+}
+
+tasks.named<org.springframework.boot.gradle.tasks.bundling.BootJar>("bootJar") {
+	mainClass.set("vn.noreo.jobhunter.JobhunterApplication")
+}
+
+tasks.withType<Copy> {
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
 }
 
 tasks.withType<Test> {
